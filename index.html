@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wesele | Kinga & Krzysztof</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, .pretty-font { font-family: 'Playfair Display', serif; }
+
+        /* CSS: Tutaj definiujesz kolory dla całej strony */
+        :root {
+            --moj-kremowy: #fdf7dd;  
+            --moj-fiolet: #ffe6fc;   
+            --bialy: #ffffff;
+        }
+
+        /* Tła sekcji */
+        .bg-white { background-color: var(--bialy); }
+        .bg-creamy { background-color: var(--moj-kremowy); }
+        .bg-violet-light { background-color: var(--moj-fiolet); }
+
+        /* Kolory fal */
+        .fala-kremowa { fill: var(--moj-kremowy); }
+        .fala-fioletowa { fill: var(--moj-fiolet); }
+        .fala-biala { fill: var(--bialy); }
+
+        /* POPRAWIONE FALE: Stała wysokość, która nie wybucha na dużych ekranach */
+        .wave-separator {
+            width: 100%;
+            height: 50px; /* Idealne na telefony */
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .wave-separator {
+                height: 90px; /* Trochę wyższe, eleganckie na komputerze */
+            }
+        }
+
+        .active-link {
+            color: #581c87; 
+            font-weight: 600;
+            border-bottom: 2px solid #581c87;
+        }
+
+        .glowna-hero {
+            background: linear-gradient(rgba(201, 211, 174, 0.5), rgba(205, 154, 207, 0.5)), url('glowna.jpg');
+            background-size: cover;
+            background-position: center 18%;
+            width: 100%;
+            min-height: 80vh; /* Zamiast 900px na sztywno, dostosowuje się do wysokości ekranu */
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 overflow-x-hidden min-h-screen flex flex-col pt-[160px]"> 
+    
+    <div class="fixed top-0 left-0 w-full h-[80px] z-[60] overflow-hidden bg-white" style="background-image: url('kwiaty.png'); background-size: contain; background-repeat: repeat-x; background-position: center;"></div>
+
+    <div class="fixed left-6 bottom-8 z-30 opacity-40 hover:opacity-100 transition-opacity hidden md:block">
+        <img src="los.jpg" alt="Ikonka Łosia" class="w-16 h-auto md:w-20 border border-purple-200 p-2 rounded-full bg-white/80 shadow-sm">
+    </div>
+
+    <div class="fixed right-6 bottom-8 z-30 opacity-40 hover:opacity-100 transition-opacity hidden md:block">
+        <img src="niedzwiedz.png" alt="Ikonka Niedźwiedzia" class="w-16 h-auto md:w-20 border border-purple-200 p-2 rounded-full bg-white/80 shadow-sm">
+    </div>    
+    
+    <nav class="fixed top-[80px] left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+            <span class="pretty-font text-2xl italic font-bold text-purple-900 mb-4 md:mb-0">K & K 2026</span>
+            
+            <div class="space-x-4 md:space-x-8 text-xs md:text-sm uppercase tracking-widest text-stone-500">
+                <button onclick="pokazSekcje('glowna', this)" class="nav-btn pb-1 hover:text-purple-700 transition active-link">Strona Główna</button>
+                <button onclick="pokazSekcje('miejsca', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Miejsca</button>
+                <button onclick="pokazSekcje('prezenty', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Prezenty</button>
+                <button onclick="pokazSekcje('rsvp', this)" class="nav-btn pb-1 hover:text-purple-700 transition">RSVP</button>
+                <button onclick="pokazSekcje('zdjecia', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Zdjęcia</button>
+                <button onclick="pokazSekcje('drescode', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Dres Code</button>
+                
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow"> 
+        
+        <div id="glowna" class="widok-sekcji block">
+            
+            <div class="glowna-hero relative w-full py-32 px-6 flex flex-col items-center justify-center text-center">
+                    <h2 class="text-5xl md:text-5xl text-purple-950 italic mb-6">Witamy Was!</h2>
+                    <p class="text-4xl md:text-xl max-w-4xl text-stone-700 leading-relaxed">
+                        Dotarliście na stronę poświęconą zaślubinom Kingi i Krzysztofa. Znajdziecie tu wszystkie podstawowe informacje dotyczące tego ważnego dla nas wydarzenia.
+                    </p>
+                <!-- </div> -->
+            </div>
+
+            <svg class="wave-separator bg-violet-light" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-biala" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+            <div class="w-full bg-violet-light py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Ślub Kościelny</h2>
+                <p class="text-lg text-purple-900/80 max-w-4xl leading-relaxed">
+                    W centrum obchodów naszych zaślubin będzie Msza Święta. Odbędzie się <strong>22 sierpnia 2026 roku o godzinie 15:00</strong> w Parafii św. Rocha w Poznaniu. <br>Serdecznie zapraszamy każdego, kto razem z nami chciałby świętować tego dnia. <br>Jeśli ktoś nie mógłby fizycznie uczestniczyć w Najświętszej Ofierze, zachęcamy do włączenia się w modlitwę poprzez 
+                    <a href="https://maps.app.goo.gl/Q2hdDuf1FP9SDSwa7" target="_blank" class="inline-block mt-2 md:mt-0 ml-1 text-purple-700 font-bold underline hover:text-purple-900 transition">
+                        transmisję online.
+                    </a>
+                </p>
+            </div>
+            
+            <svg class="wave-separator bg-creamy" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-fioletowa" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,112C672,107,768,149,864,181.3C960,213,1056,235,1152,218.7C1248,203,1344,149,1392,122.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+            <div class="w-full bg-creamy py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Modlitwa</h2>
+                <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
+                    Tych, którzy chcieliby nas szczególnie wesprzeć, serdecznie prosimy o modlitwę – nie tylko w dni ślubu. Będzie nam bardzo miło, jeśli przyjmiecie Eucharystię w naszej intencji.
+                </p>
+            </div>
+
+            <svg class="wave-separator bg-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-kremowa" d="M0,64L48,96C96,128,192,192,288,213.3C384,235,480,213,576,192C672,171,768,149,864,149.3C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+            <div class="w-full bg-white py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Co Was czeka</h2>
+                <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
+                    Po Eucharystii chwilę spędzimy pod kościołem, a następnie przejedziemy do sali weselnej. Na miejscu będzie parking tylko dla ograniczonej liczby samochodów, ale spokojnie: reszta może zaparkować wzdłuż drogi Szkolnej.<br><br><strong>Prosimy, wyśpijcie się dzień wcześniej, bo zabawa potrwa do 4 rano!</strong>
+                </p>
+            </div>
+
+            <div class="w-full bg-white block">
+                <svg class="wave-separator" preserveAspectRatio="none" viewBox="0 0 1440 320">
+                    <path class="fala-kremowa" fill-opacity="1" d="M0,160L80,170.7C160,181,320,203,480,186.7C640,171,800,117,960,101.3C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+                </svg>
+            </div>
+
+            <!-- <div class="w-full bg-creamy pt-10 pb-32 px-6 flex flex-col items-center justify-center text-center -mt-1">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Ważne informacje</h2>
+                <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
+                    <strong>Noclegi:</strong> W dworku jest nocleg dla dziesięciu osób. Jeśli będziecie z nami do rana i zabraknie miejsca, polecamy okoliczne hotele.<br><br>
+                    <strong>Zdjęcia:</strong> Zachęcamy do zostania po Mszy Świętej, aby wykonać wspólne zdjęcie pod kościołem.<br><br>
+                    <strong>Dress Code:</strong> Formalny. Zachęcamy do ubrania się bardzo elegancko – twórcy tej strony nie mają obaw i zdają sobie sprawę, że Pani Młoda i tak będzie wyglądać najpiękniej!
+                </p>
+            </div> -->
+        </div>
+        
+        <div id="miejsca" class="widok-sekcji hidden w-full bg-stone-100 py-16 px-6 min-h-screen">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl text-center text-purple-950 italic mb-16">Miejsca Ceremonii & Przyjęcia</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-stone-200 flex flex-col items-center text-center">
+                        <div class="aspect-[16/9] w-full bg-stone-100 rounded-2xl mb-6 overflow-hidden flex items-center justify-center border border-stone-200 relative">
+                            <img src="church.png" class="object-cover w-full h-full" alt="Kościół">
+                        </div>
+                        <h3 class="text-3xl text-purple-900 mb-2">Ślub Kościelny</h3>
+                        <p class="text-stone-500 mb-2 font-bold uppercase tracking-widest text-sm">Godzina 15:00</p>
+                        <p class="text-stone-600 mb-6 flex-grow">Kościół św. Rocha w Poznaniu<br><span class="text-sm italic">ul. Świętego Rocha 10, Poznań</span></p>
+                        <a href="https://maps.app.goo.gl/Q2hdDuf1FP9SDSwa7" target="_blank" class="inline-block w-full text-center bg-purple-900 text-white px-6 py-3 rounded-xl uppercase tracking-widest text-sm hover:bg-purple-800 transition shadow-md">Google Maps</a>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-stone-200 flex flex-col items-center text-center">
+                        <div class="aspect-[16/9] w-full bg-stone-100 rounded-2xl mb-6 overflow-hidden flex items-center justify-center border border-stone-200 relative">
+                            <img src="dworek.png" class="object-cover w-full h-full" alt="Dworek">
+                        </div>
+                        <h3 class="text-3xl text-purple-900 mb-2">Przyjęcie Weselne</h3>
+                        <p class="text-stone-500 mb-2 font-bold uppercase tracking-widest text-sm">Po ceremonii</p>
+                        <p class="text-stone-600 mb-6 flex-grow">Dworek Grzebienisko<br><span class="text-sm italic">ul. Szkolna 18, Grzebienisko</span></p>
+                        <a href="https://maps.app.goo.gl/ey6K6pvvcuv2Hxsd9" target="_blank" class="inline-block w-full text-center bg-purple-900 text-white px-6 py-3 rounded-xl uppercase tracking-widest text-sm hover:bg-purple-800 transition shadow-md">Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="prezenty" class="widok-sekcji hidden w-full bg-white pb-32 min-h-screen">
+            
+            <div class="w-full bg-white py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Kwiaty</h2>
+                <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
+                    Za wszelkie kwiaty z góry dziękujemy: na weselu będą już spore ilości pachnących dekoracji i naprawdę nie będziemy mieli możliwości przyjęcia ich więcej, a nie chcemy by się zmarnowały.
+                </p>
+            </div>
+            
+            <svg class="wave-separator bg-violet-light" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-biala" d="M0,64L48,96C96,128,192,192,288,213.3C384,235,480,213,576,192C672,171,768,149,864,149.3C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+                
+            <div class="w-full bg-violet-light py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">O prezentach</h2>
+                <p class="text-lg text-purple-900/80 max-w-4xl leading-relaxed mb-12">
+                    Prosimy: nie warunkujcie swojej obecności prezentami. Wasza obecność jest dla nas najważniejsza! Gdybyście jednak chcieli nam coś podarować, poniżej załączamy listę rzeczy, które ułatwią nam start.<br><br>Jeśli ktoś z Was chciałby nas zaskoczyć butelką alkoholu, to również z góry dziękujemy – takich trunków zwyczajnie nie spożywamy.
+                </p>
+            </div>      
+            
+            <svg class="wave-separator bg-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-fioletowa" d="M0,64L48,96C96,128,192,192,288,213.3C384,235,480,213,576,192C672,171,768,149,864,149.3C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+            <div class="max-w-5xl w-full mx-auto px-6 mt-10">
+                <div class="aspect-[16/10] w-full rounded-2xl shadow-inner border-2 border-dashed border-purple-200 overflow-hidden bg-purple-50 flex items-center justify-center text-purple-400 relative">
+                    <iframe 
+                        src="https://docs.google.com/spreadsheets/d/1J5KAzYhz2EpW-VOkjtlDaMvhHQ_xzXgSdNIge5SHtqA/edit?usp=sharing"  
+                        class="w-full h-full rounded-xl z-10 relative bg-white"
+                        frameborder="0" 
+                        scrolling="no">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="rsvp" class="widok-sekcji hidden w-full bg-creamy py-24 px-6 min-h-screen">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-5xl text-purple-950 italic mb-6">Potwierdzenie Obecności</h2>
+                <p class="text-lg text-stone-700 mb-12">Prosimy o odpowiedź do 22 lipca 2026 r.</p>
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-stone-200 flex flex-col items-center justify-center p-12">
+                    <p class="text-stone-500 mb-8 italic text-lg">Kliknij poniższy przycisk, aby wypełnić krótki formularz potwierdzający Wasze przybycie i ewentualne diety.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYElWODnCGv4ZzWI0wzTv4X3Kvw2jJk0Iw9TFFVzgz6ox9vA/viewform?usp=publish-editor" target="_blank" class="inline-block bg-purple-900 text-white px-8 py-4 rounded-xl uppercase tracking-widest text-sm hover:bg-purple-800 hover:-translate-y-1 transition shadow-lg w-full md:w-auto">
+                        Otwórz formularz
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="zdjecia" class="widok-sekcji hidden w-full bg-violet-light py-24 px-6 min-h-screen">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl text-purple-950 italic mb-6">Zdjęcia</h2>
+                <p class="text-lg text-stone-700 mb-12"> Mamy prośbę do wszystkich uczestniczhących w ceremonii i na weselu: <br>Zapraszamy Państwa do pełnej obecności w tej wyjątkowej chwili. Proszę, wyłączcie telefony komórkowe i odłóżcie aparaty fotograficzne. Fotograf uchwyci, jak ta chwila wygląda — zachęcamy wszystkich do uchwycenia jej w sercu, bez rozpraszającej uwagi technologii. <br>Jeśli ktoś chciałby, żeby fotograf zrobił Wam zdjęcie to prośba od fotograf jest taka: zawołajcie do niej i zostaniecie uwiecznieni.</p>
+                
+                
+            </div>
+        </div>
+        <div id="drescode" class="widok-sekcji hidden w-full bg-gradient-to-b from-amber-50/60 to-purple-100/100 py-24 px-6 min-h-screen">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-5xl text-purple-950 italic mb-6">Dress Code</h2>
+                <p class="text-lg text-stone-700 mb-12">Na przyjęciu obowiązuje formalny strój. Prosimy o stroje lub akcenty w kolorach kremowych, jasnych i wiosennych.</p>                
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-purple-950 text-purple-200 py-8 px-6 text-center text-sm border-t border-purple-900 mt-auto">
+        <p class="pretty-font text-xl italic mb-1">Kinga & Krzysztof 2026</p>
+        <p>© 2026 | Z miłością</p>
+    </footer>
+
+    <script>
+        function pokazSekcje(idSekcji, kliknietyPrzycisk) {
+            let sekcje = document.querySelectorAll('.widok-sekcji');
+            sekcje.forEach(function(sekcja) {
+                sekcja.classList.add('hidden');
+                sekcja.classList.remove('block');
+            });
+
+            let aktywnaSekcja = document.getElementById(idSekcji);
+            aktywnaSekcja.classList.remove('hidden');
+            aktywnaSekcja.classList.add('block');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (kliknietyPrzycisk) {
+                let przyciski = document.querySelectorAll('.nav-btn');
+                przyciski.forEach(function(btn) {
+                    btn.classList.remove('active-link');
+                });
+                kliknietyPrzycisk.classList.add('active-link');
+            }
+        }
+    </script>
+</body>
+</html>
