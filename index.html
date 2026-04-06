@@ -46,9 +46,9 @@
         }
 
         .glowna-hero {
-            background: linear-gradient(rgba(201, 211, 174, 0.5), rgba(205, 154, 207, 0.5)), url('glowna.jpg');
+            background: linear-gradient(rgba(203, 204, 183, 0.8), rgba(194, 106, 197, 0.7)), url('glowna.jpg');
             background-size: cover;
-            background-position: center 18%;
+            background-position: center 44%;
             width: 100%;
             min-height: 80vh; /* Zamiast 900px na sztywno, dostosowuje się do wysokości ekranu */
             background-attachment: fixed;
@@ -77,7 +77,7 @@
                 <button onclick="pokazSekcje('prezenty', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Prezenty</button>
                 <button onclick="pokazSekcje('rsvp', this)" class="nav-btn pb-1 hover:text-purple-700 transition">RSVP</button>
                 <button onclick="pokazSekcje('zdjecia', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Zdjęcia</button>
-                <button onclick="pokazSekcje('drescode', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Dres Code</button>
+                <!-- <button onclick="pokazSekcje('drescode', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Dres Code</button> -->
                 
 
             </div>
@@ -88,12 +88,11 @@
         
         <div id="glowna" class="widok-sekcji block">
             
-            <div class="glowna-hero relative w-full py-32 px-6 flex flex-col items-center justify-center text-center">
-                    <h2 class="text-5xl md:text-5xl text-purple-950 italic mb-6">Witamy Was!</h2>
-                    <p class="text-4xl md:text-xl max-w-4xl text-stone-700 leading-relaxed">
-                        Dotarliście na stronę poświęconą zaślubinom Kingi i Krzysztofa. Znajdziecie tu wszystkie podstawowe informacje dotyczące tego ważnego dla nas wydarzenia.
-                    </p>
-                <!-- </div> -->
+            <div class="glowna-hero relative w-full py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Witamy Was!</h2>
+                <p class="text-lg md:text-xl max-w-4xl text-stone-700 leading-relaxed">
+                    <strong>Dotarliście na stronę poświęconą zaślubinom Kingi i Krzysztofa. Znajdziecie tu wszystkie podstawowe informacje dotyczące tego ważnego dla nas wydarzenia.</strong>
+                </p>
             </div>
 
             <svg class="wave-separator bg-violet-light" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-biala" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
@@ -101,8 +100,8 @@
             <div class="w-full bg-violet-light py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
                 <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Ślub Kościelny</h2>
                 <p class="text-lg text-purple-900/80 max-w-4xl leading-relaxed">
-                    W centrum obchodów naszych zaślubin będzie Msza Święta. Odbędzie się <strong>22 sierpnia 2026 roku o godzinie 15:00</strong> w Parafii św. Rocha w Poznaniu. <br>Serdecznie zapraszamy każdego, kto razem z nami chciałby świętować tego dnia. <br>Jeśli ktoś nie mógłby fizycznie uczestniczyć w Najświętszej Ofierze, zachęcamy do włączenia się w modlitwę poprzez 
-                    <a href="https://maps.app.goo.gl/Q2hdDuf1FP9SDSwa7" target="_blank" class="inline-block mt-2 md:mt-0 ml-1 text-purple-700 font-bold underline hover:text-purple-900 transition">
+                    W centrum obchodów naszych zaślubin będzie Msza Święta.<br> Odbędzie się <strong>22 sierpnia 2026 roku o godzinie 15:00 w Parafii św. Rocha w Poznaniu.</strong> <br>Serdecznie zapraszamy każdego, kto razem z nami chciałby świętować tego dnia. <br>Jeśli ktoś nie mógłby fizycznie uczestniczyć w Najświętszej Ofierze, zachęcamy do włączenia się w modlitwę poprzez 
+                    <a href="https://www.youtube.com/watch?v=WWvirMeAd7Y" target="_blank" class="inline-block mt-2 md:mt-0 ml-1 text-purple-700 font-bold underline hover:text-purple-900 transition">
                         transmisję online.
                     </a>
                 </p>
@@ -113,7 +112,7 @@
             <div class="w-full bg-creamy py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
                 <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Modlitwa</h2>
                 <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
-                    Tych, którzy chcieliby nas szczególnie wesprzeć, serdecznie prosimy o modlitwę – nie tylko w dni ślubu. Będzie nam bardzo miło, jeśli przyjmiecie Eucharystię w naszej intencji.
+                    Tych, którzy chcieliby nas szczególnie wesprzeć, serdecznie prosimy o modlitwę – nie tylko w dniu ślubu. Będzie nam bardzo miło, jeśli przyjmiecie Eucharystię w naszej intencji.
                 </p>
             </div>
 
@@ -122,7 +121,7 @@
             <div class="w-full bg-white py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
                 <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Co Was czeka</h2>
                 <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
-                    Po Eucharystii chwilę spędzimy pod kościołem, a następnie przejedziemy do sali weselnej. Na miejscu będzie parking tylko dla ograniczonej liczby samochodów, ale spokojnie: reszta może zaparkować wzdłuż drogi Szkolnej.<br><br><strong>Prosimy, wyśpijcie się dzień wcześniej, bo zabawa potrwa do 4 rano!</strong>
+                    Po Eucharystii będzie czas na zrobienie pamiątkowego zdjęcia oraz złożenie życzeń.  <br>Goście weselni mogą w tym czasie udać się do Dworku Grzebienisko.<br> Na miejscu znajduje się niewielki parking, ale spokojnie: reszta może zaparkować wzdłuż drogi Szkolnej.<br><br><strong>Prosimy, wyśpijcie się dzień wcześniej, bo zabawa potrwa do 4 rano!</strong>
                 </p>
             </div>
 
@@ -131,13 +130,12 @@
                     <path class="fala-kremowa" fill-opacity="1" d="M0,160L80,170.7C160,181,320,203,480,186.7C640,171,800,117,960,101.3C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
                 </svg>
             </div>
-
+            
+            
             <!-- <div class="w-full bg-creamy pt-10 pb-32 px-6 flex flex-col items-center justify-center text-center -mt-1">
-                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Ważne informacje</h2>
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Alkohol</h2>
                 <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
-                    <strong>Noclegi:</strong> W dworku jest nocleg dla dziesięciu osób. Jeśli będziecie z nami do rana i zabraknie miejsca, polecamy okoliczne hotele.<br><br>
-                    <strong>Zdjęcia:</strong> Zachęcamy do zostania po Mszy Świętej, aby wykonać wspólne zdjęcie pod kościołem.<br><br>
-                    <strong>Dress Code:</strong> Formalny. Zachęcamy do ubrania się bardzo elegancko – twórcy tej strony nie mają obaw i zdają sobie sprawę, że Pani Młoda i tak będzie wyglądać najpiękniej!
+                    Alkoholu nie będzie na przyjęciu. Prosimy o umiarkowane spożycie.
                 </p>
             </div> -->
         </div>
@@ -175,7 +173,7 @@
             <div class="w-full bg-white py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
                 <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Kwiaty</h2>
                 <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
-                    Za wszelkie kwiaty z góry dziękujemy: na weselu będą już spore ilości pachnących dekoracji i naprawdę nie będziemy mieli możliwości przyjęcia ich więcej, a nie chcemy by się zmarnowały.
+                    Za wszelkie kwiaty dziękujemy (nie przynoście proszę): na weselu będą już spore ilości pachnących dekoracji i naprawdę nie będziemy mieli możliwości przyjęcia ich więcej, a nie chcemy by się zmarnowały.
                 </p>
             </div>
             
@@ -184,7 +182,7 @@
             <div class="w-full bg-violet-light py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
                 <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">O prezentach</h2>
                 <p class="text-lg text-purple-900/80 max-w-4xl leading-relaxed mb-12">
-                    Prosimy: nie warunkujcie swojej obecności prezentami. Wasza obecność jest dla nas najważniejsza! Gdybyście jednak chcieli nam coś podarować, poniżej załączamy listę rzeczy, które ułatwią nam start.<br><br>Jeśli ktoś z Was chciałby nas zaskoczyć butelką alkoholu, to również z góry dziękujemy – takich trunków zwyczajnie nie spożywamy.
+                    Prosimy: nie warunkujcie swojej obecności prezentami. Wasza obecność jest dla nas najważniejsza! Gdybyście jednak chcieli nam coś podarować, poniżej załączamy listę rzeczy, które ułatwią nam start.<br><br>Jeśli ktoś z Was chciałby nas zaskoczyć butelką alkoholu, to również z dziękujemy (nie chcemy) – takich trunków nie spożywamy.
                 </p>
             </div>      
             
@@ -193,7 +191,7 @@
             <div class="max-w-5xl w-full mx-auto px-6 mt-10">
                 <div class="aspect-[16/10] w-full rounded-2xl shadow-inner border-2 border-dashed border-purple-200 overflow-hidden bg-purple-50 flex items-center justify-center text-purple-400 relative">
                     <iframe 
-                        src="https://docs.google.com/spreadsheets/d/1J5KAzYhz2EpW-VOkjtlDaMvhHQ_xzXgSdNIge5SHtqA/edit?usp=sharing"  
+                        src="https://docs.google.com/spreadsheets/d/1J5KAzYhz2EpW-VOkjtlDaMvhHQ_xzXgSdNIge5SHtqA/preview"  
                         class="w-full h-full rounded-xl z-10 relative bg-white"
                         frameborder="0" 
                         scrolling="no">
@@ -205,7 +203,7 @@
         <div id="rsvp" class="widok-sekcji hidden w-full bg-creamy py-24 px-6 min-h-screen">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-5xl text-purple-950 italic mb-6">Potwierdzenie Obecności</h2>
-                <p class="text-lg text-stone-700 mb-12">Prosimy o odpowiedź do 22 lipca 2026 r.</p>
+                <p class="text-lg text-stone-700 mb-12">Prosimy o odpowiedź do końca maja 2026 r.</p>
                 
                 <div class="bg-white rounded-3xl shadow-xl border border-stone-200 flex flex-col items-center justify-center p-12">
                     <p class="text-stone-500 mb-8 italic text-lg">Kliknij poniższy przycisk, aby wypełnić krótki formularz potwierdzający Wasze przybycie i ewentualne diety.</p>
@@ -223,12 +221,12 @@
                 
             </div>
         </div>
-        <div id="drescode" class="widok-sekcji hidden w-full bg-gradient-to-b from-amber-50/60 to-purple-100/100 py-24 px-6 min-h-screen">
+        <!-- <div id="drescode" class="widok-sekcji hidden w-full bg-gradient-to-b from-amber-50/60 to-purple-100/100 py-24 px-6 min-h-screen">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-5xl text-purple-950 italic mb-6">Dress Code</h2>
                 <p class="text-lg text-stone-700 mb-12">Na przyjęciu obowiązuje formalny strój. Prosimy o stroje lub akcenty w kolorach kremowych, jasnych i wiosennych.</p>                
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer class="bg-purple-950 text-purple-200 py-8 px-6 text-center text-sm border-t border-purple-900 mt-auto">
@@ -238,26 +236,58 @@
 
     <script>
         function pokazSekcje(idSekcji, kliknietyPrzycisk) {
+            // 1. Ukrywamy wszystkie sekcje
             let sekcje = document.querySelectorAll('.widok-sekcji');
             sekcje.forEach(function(sekcja) {
                 sekcja.classList.add('hidden');
                 sekcja.classList.remove('block');
             });
 
+            // 2. Pokazujemy docelową sekcję
             let aktywnaSekcja = document.getElementById(idSekcji);
-            aktywnaSekcja.classList.remove('hidden');
-            aktywnaSekcja.classList.add('block');
+            if (aktywnaSekcja) {
+                aktywnaSekcja.classList.remove('hidden');
+                aktywnaSekcja.classList.add('block');
+            }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
+            // 3. Resetujemy wygląd wszystkich przycisków
+            let przyciski = document.querySelectorAll('.nav-btn');
+            przyciski.forEach(function(btn) {
+                btn.classList.remove('active-link');
+            });
+
+            // 4. Podświetlamy odpowiedni przycisk
             if (kliknietyPrzycisk) {
-                let przyciski = document.querySelectorAll('.nav-btn');
-                przyciski.forEach(function(btn) {
-                    btn.classList.remove('active-link');
-                });
                 kliknietyPrzycisk.classList.add('active-link');
+            } else {
+                // Jeśli strona ładuje się z pamięci (bez fizycznego kliknięcia), 
+                // szukamy przycisku, który w swoim kodzie onclick ma nazwę tej sekcji
+                let aktywnyPrzycisk = document.querySelector(`.nav-btn[onclick*="'${idSekcji}'"]`);
+                if (aktywnyPrzycisk) {
+                    aktywnyPrzycisk.classList.add('active-link');
+                }
             }
+
+            // 5. ZAPIS DO PAMIĘCI: Zapisujemy id aktualnej sekcji w przeglądarce
+            localStorage.setItem('aktywnaSekcja', idSekcji);
         }
+
+        // ODCZYT Z PAMIĘCI: Uruchamia się automatycznie po załadowaniu/odświeżeniu strony
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sprawdzamy, czy w pamięci jest zapisana jakaś sekcja
+            let zapisanaSekcja = localStorage.getItem('aktywnaSekcja');
+            
+            if (zapisanaSekcja && document.getElementById(zapisanaSekcja)) {
+                // Jeśli jest, włączamy ją (przekazujemy null zamiast przycisku, bo funkcja znajdzie go sama)
+                pokazSekcje(zapisanaSekcja, null);
+            } else {
+                // Jeśli wchodzimy na stronę pierwszy raz (brak pamięci), domyślnie ładujemy główną
+                pokazSekcje('glowna', null);
+            }
+        });
     </script>
+
 </body>
 </html>
