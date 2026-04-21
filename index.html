@@ -105,8 +105,12 @@
     
     <nav class="fixed top-[80px] left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-            <span class="pretty-font text-2xl italic font-bold text-purple-900 mb-4 md:mb-0">K & K 2026</span>
-            
+            <div class="pretty-font italic font-bold text-purple-900 mb-4 md:mb-0 flex items-baseline gap-1">
+                <span class="text-3xl leading-none">K</span>
+                <span class="text-xl">&</span>
+                <span class="text-3xl leading-none">K</span>
+                <span class="text-xl ml-1">2026</span>
+            </div>
             <div class="space-x-4 md:space-x-8 text-xs md:text-sm uppercase tracking-widest text-stone-500">
                 <button onclick="pokazSekcje('glowna', this)" class="nav-btn pb-1 hover:text-purple-700 transition active-link">Strona Główna</button>
                 <button onclick="pokazSekcje('miejsca', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Miejsca</button>
@@ -153,8 +157,21 @@
             </div>
 
             <svg class="wave-separator bg-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-kremowa" d="M0,64L48,96C96,128,192,192,288,213.3C384,235,480,213,576,192C672,171,768,149,864,149.3C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
-
+            
             <div class="w-full bg-white py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Punktualność</h2>
+                <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
+                    Miejsca w kosciele wystarczy dla wszystkich. Prosimy jednak o punktualność i zajęcie miejsca przed rozpoczęciem ceremonii.
+                </p>
+            </div>
+
+            <div class="w-full bg-white block">
+                <svg class="wave-separator" preserveAspectRatio="none" viewBox="0 0 1440 320">
+                    <path class="fala-fioletowa" fill-opacity="1" d="M0,160L80,170.7C160,181,320,203,480,186.7C640,171,800,117,960,101.3C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+                </svg>
+            </div>
+            
+            <div class="w-full bg-violet-light py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
                 <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Co Was czeka</h2>
                 <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
                     Po Eucharystii będzie czas na zrobienie pamiątkowego zdjęcia oraz złożenie życzeń.  <br>Goście weselni mogą w tym czasie udać się do Dworku Grzebienisko.<br> Na miejscu znajduje się niewielki parking, ale spokojnie: reszta może zaparkować wzdłuż drogi Szkolnej.<br><br><strong>Prosimy, wyśpijcie się dzień wcześniej, bo zabawa potrwa do 4 rano!</strong>
@@ -187,7 +204,16 @@
                         </div>
                         <h3 class="text-3xl text-purple-900 mb-2">Ślub Kościelny</h3>
                         <p class="text-stone-500 mb-2 font-bold uppercase tracking-widest text-sm">Godzina 15:00</p>
-                        <p class="text-stone-600 mb-6 flex-grow">Kościół św. Rocha w Poznaniu<br><span class="text-sm italic">ul. Świętego Rocha 10, Poznań</span></p>
+                        <p class="text-stone-600 flex-grow">Kościół św. Rocha w Poznaniu<br><span class="text-sm italic">ul. Świętego Rocha 10, Poznań</span></p>
+                        
+                        <div class="w-full text-left bg-purple-50/50 border border-purple-100 p-4 rounded-xl mt-6 mb-6 text-sm text-stone-600">
+                            <span class="block font-bold text-purple-900 mb-1">🚗 Parking:</span>
+                            Do Waszej dyspozycji jest kilka miejsc na terenie samej parafii. Samochody można również swobodnie parkować wzdłuż ulicy św. Rocha oraz pobliskiej ulicy Piotrowo.
+                        </div>
+                        <div class="border-t border-purple-100 pt-3">
+                            <span class="block font-bold text-purple-900 mb-1">🚻 Udogodnienia:</span>
+                            Dla Państwa wygody informujemy, że toaleta dostępna jest w Centrum Duszpasterskim, zlokalizowanym tuż za budynkiem kościoła.
+                        </div>
                         <a href="https://maps.app.goo.gl/Q2hdDuf1FP9SDSwa7" target="_blank" class="inline-block w-full text-center bg-purple-900 text-white px-6 py-3 rounded-xl uppercase tracking-widest text-sm hover:bg-purple-800 transition shadow-md">Google Maps</a>
                     </div>
 
@@ -197,7 +223,13 @@
                         </div>
                         <h3 class="text-3xl text-purple-900 mb-2">Przyjęcie Weselne</h3>
                         <p class="text-stone-500 mb-2 font-bold uppercase tracking-widest text-sm">Po ceremonii</p>
-                        <p class="text-stone-600 mb-6 flex-grow">Dworek Grzebienisko<br><span class="text-sm italic">ul. Szkolna 18, Grzebienisko</span></p>
+                        <p class="text-stone-600 flex-grow">Dworek Grzebienisko<br><span class="text-sm italic">ul. Szkolna 18, Grzebienisko</span></p>
+                        
+                        <div class="w-full text-left bg-purple-50/50 border border-purple-100 p-4 rounded-xl mt-6 mb-6 text-sm text-stone-600">
+                            <span class="block font-bold text-purple-900 mb-1">🚗 Parking:</span>
+                            Na terenie obiektu znajduje się 20 dedykowanych miejsc parkingowych. Pozostałe pojazdy można bezpiecznie i wygodnie zaparkować wzdłuż ulicy Szkolnej.
+                        </div>
+
                         <a href="https://maps.app.goo.gl/ey6K6pvvcuv2Hxsd9" target="_blank" class="inline-block w-full text-center bg-purple-900 text-white px-6 py-3 rounded-xl uppercase tracking-widest text-sm hover:bg-purple-800 transition shadow-md">Google Maps</a>
                     </div>
                 </div>
@@ -482,6 +514,7 @@
 
             </div>
         </div>
+
         <div id="rsvp" class="widok-sekcji hidden w-full bg-creamy py-24 px-6 min-h-screen">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-5xl text-purple-950 italic mb-6">Potwierdzenie Obecności</h2>
@@ -495,10 +528,22 @@
                 </div>
             </div>
         </div>
+
         <div id="zdjecia" class="widok-sekcji hidden w-full bg-violet-light py-24 px-6 min-h-screen">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-5xl text-purple-950 italic mb-6">Zdjęcia</h2>
-                <p class="text-lg text-stone-700 mb-12"> Mamy prośbę do wszystkich uczestniczhących w ceremonii i na weselu: <br>Zapraszamy Państwa do pełnej obecności w tej wyjątkowej chwili. Proszę, wyłączcie telefony komórkowe i odłóżcie aparaty fotograficzne. Fotograf uchwyci, jak ta chwila wygląda — zachęcamy wszystkich do uchwycenia jej w sercu, bez rozpraszającej uwagi technologii. <br>Jeśli ktoś chciałby, żeby fotograf zrobił Wam zdjęcie to prośba od fotograf jest taka: zawołajcie do niej i zostaniecie uwiecznieni.</p>
+                <p class="text-lg text-stone-700 mb-12"> 
+                    Mamy uprzejmą prośbę do wszystkich Gości uczestniczących w ceremonii oraz przyjęciu weselnym. 
+                    <br><br>
+                    Zależy nam na pełnej obecności w tej wyjątkowej chwili, dlatego prosimy o wyciszenie telefonów komórkowych oraz odłożenie aparatów fotograficznych. 
+                    <br><br>
+                    Profesjonalny fotograf zadba o uchwycenie najpiękniejszych momentów, a Was zachęcamy do przeżywania ich bez rozpraszającej uwagi technologii. 
+                    <br><br>
+                    Jeśli pragniecie mieć własne zdjęcie, portret itp. uprzejmie prosimy o bezpośredni kontakt z fotografem – z przyjemnością wykona pamiątkowe ujęcia na życzenie. Serdecznie zachecamy do korzystania z tej możliwości.
+                    W tym wyjątkowym dniu wszyscy będą prezentować się niezwykle elegancko, a wykonany portret pozostanie cenną pamiątką na lata. 
+                    🙂
+                    <br><br>
+                    Po otrzymaniu zdjęć link do galerii zostanie udostępniony na tej stronie.
                 
                 
             </div>
