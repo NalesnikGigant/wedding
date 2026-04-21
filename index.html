@@ -53,6 +53,42 @@
             min-height: 80vh; /* Zamiast 900px na sztywno, dostosowuje się do wysokości ekranu */
             background-attachment: fixed;
         }
+        /* .gray-filter {
+            filter: grayscale(100%) brightness(70%);
+            pointer-events: none; 
+            opacity: 0.6;
+        } 
+        .circle-card {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        } */
+        .gray-filter {
+            filter: grayscale(100%) opacity(0.7);
+            pointer-events: none; /* Całkowicie blokuje interakcję */
+            cursor: not-allowed;
+        }
+
+        /* Idealne koło */
+        .gift-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 6px solid #9063bb; /* Purple-600 */
+            background-color: rgb(219, 37, 37); 
+        }
+        
+        .gift-circle img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gift-circle:hover img {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-900 overflow-x-hidden min-h-screen flex flex-col pt-[160px]"> 
@@ -75,7 +111,7 @@
                 <button onclick="pokazSekcje('glowna', this)" class="nav-btn pb-1 hover:text-purple-700 transition active-link">Strona Główna</button>
                 <button onclick="pokazSekcje('miejsca', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Miejsca</button>
                 <button onclick="pokazSekcje('prezenty', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Prezenty</button>
-                <button onclick="pokazSekcje('rsvp', this)" class="nav-btn pb-1 hover:text-purple-700 transition">RSVP</button>
+                <button onclick="pokazSekcje('rsvp', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Odpowiedzi</button>
                 <button onclick="pokazSekcje('zdjecia', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Zdjęcia</button>
                 <!-- <button onclick="pokazSekcje('drescode', this)" class="nav-btn pb-1 hover:text-purple-700 transition">Dres Code</button> -->
                 
@@ -171,34 +207,280 @@
         <div id="prezenty" class="widok-sekcji hidden w-full bg-white pb-32 min-h-screen">
             
             <div class="w-full bg-white py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
-                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Kwiaty</h2>
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Podarunki</h2>
                 <p class="text-lg text-stone-700 max-w-4xl leading-relaxed">
-                    Za wszelkie kwiaty dziękujemy (nie przynoście proszę): na weselu będą już spore ilości pachnących dekoracji i naprawdę nie będziemy mieli możliwości przyjęcia ich więcej, a nie chcemy by się zmarnowały.
+                    Wasza obecność jest dla nas najpiękniejszym darem i to ona sprawi nam największą radość. <br>
+                    Jeśli jednak chcielibyście obdarować nas czymś dodatkowym, uprzejmie prosimy o rezygnację z kwiatów. Zamiast nich możecie podarować coś, co zostanie z nami na dłużej.
+                    <br>
+                    Jeśli ktoś z Was planowałby podarować nam butelkę alkoholu, uprzejmie informujemy, że nie spożywamy takich trunków – dlatego prosimy o rezygnację z tego rodzaju prezentów.
                 </p>
             </div>
             
             <svg class="wave-separator bg-violet-light" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-biala" d="M0,64L48,96C96,128,192,192,288,213.3C384,235,480,213,576,192C672,171,768,149,864,149.3C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
                 
             <div class="w-full bg-violet-light py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center">
-                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">O prezentach</h2>
+                <h2 class="text-4xl md:text-5xl text-purple-950 italic mb-6">Prezenty</h2>
                 <p class="text-lg text-purple-900/80 max-w-4xl leading-relaxed mb-12">
-                    Prosimy: nie warunkujcie swojej obecności prezentami. Wasza obecność jest dla nas najważniejsza! Gdybyście jednak chcieli nam coś podarować, poniżej załączamy listę rzeczy, które ułatwią nam start.<br><br>Jeśli ktoś z Was chciałby nas zaskoczyć butelką alkoholu, to również z dziękujemy (nie chcemy) – takich trunków nie spożywamy.
+                    Drodzy Goście, pragniemy z całego serca podkreślić, że najważniejsze dla nas jest to, abyśmy w tym dniu mogli cieszyć się Waszym towarzystwem. Wasza obecność jest dla nas priorytetem!<br>
+                    Nie oczekujemy podarunków, jeśli jednak jest to Waszym pragnieniem, z radością przyjmiemy wsparcie finansowe, które ułatwi nam start w nowe życie. 
+                    <br>Pomyśleliśmy również o osobach, które lubią wręczać tradycyjne upominki –
+                    dla Waszej wygody zebraliśmy poniżej listę rzeczy, które z pewnością znajdą zastosowanie w naszym domu.<br><br>
+                    Jeśli chcielibyście zarezerwować któryś z prezentów, wystarczy kliknąć przycisk "Rezerwuję", a następnie potwierdzić komunikat ze strony. – wtedy będzie on oznaczony jako zajęty i nie zostanie wybrany przez nikogo innego.
                 </p>
             </div>      
             
             <svg class="wave-separator bg-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path class="fala-fioletowa" d="M0,64L48,96C96,128,192,192,288,213.3C384,235,480,213,576,192C672,171,768,149,864,149.3C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
 
-            <div class="max-w-5xl w-full mx-auto px-6 mt-10">
-                <div class="aspect-[16/10] w-full rounded-2xl shadow-inner border-2 border-dashed border-purple-200 overflow-hidden bg-purple-50 flex items-center justify-center text-purple-400 relative">
-                    <iframe 
-                        src="https://docs.google.com/spreadsheets/d/1J5KAzYhz2EpW-VOkjtlDaMvhHQ_xzXgSdNIge5SHtqA/preview"  
-                        class="w-full h-full rounded-xl z-10 relative bg-white"
-                        frameborder="0" 
-                        scrolling="no">
-                    </iframe>
+            <div id="prezenty-lista" class="flex flex-wrap gap-12 justify-center">
+    
+                <div id="prezent01" class="gift-circle shadow-xl bg-white">
+                    <img src="czajnik.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Czajnik elektryczny</span>
+                        <a href="https://www.ceneo.pl/193851200;pla?se=3V31pDh74AJLuqJewVNO7mWnsAqEsNg5&shop=146601524&gad_source=1&gad_campaignid=21651363057&gclid=Cj0KCQjwqPLOBhCiARIsAKRMPZp5qaJUte95TGmf9BouKZW4C9i6PnBF39GyhcKkSVtfo2M-rc22PNUaAvsFEALw_wcB" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Konkret</a>
+                        <button onclick="zarezerwuj('prezent01', 'Czajnik')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
                 </div>
+
+                <!-- <div id="prezent02" class="gift-circle shadow-xl bg-white">
+                    <img src="suszarka.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Suszarka do owoców</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent02', 'Suszarka do owoców')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <div id="prezent03" class="gift-circle shadow-xl bg-white">
+                    <img src="noze.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Noże kuchenne</span>
+                        <a href="https://www.nakrywamy.pl/fiskars-edge-1003099-zestaw-5-nozy-kuchennych-w-bloku-czarnym-stal-420j2-czarne-ostrza-ostrzalka-essential" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Konkret</a>
+                        <button onclick="zarezerwuj('prezent03', 'Noże kuchenne')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+<!-- 
+                <div id="prezent4" class="gift-circle shadow-xl bg-white">
+                    <img src="wkretarka.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Wkrętarka</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent4', 'Wkrętarka')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent5" class="gift-circle shadow-xl bg-white">
+                    <img src="aparat.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Aparat cyfrowy</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent5', 'Aparat cyfrowy')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <div id="prezent6" class="gift-circle shadow-xl bg-white">
+                    <img src="odkurzacz.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Odkurzacz</span>
+                        <a href="http://mediamarkt.pl/pl/product/_odkurzacz-bezprzewodowy-dreame-h12-pro-flexreach-czarny-1493674.html?utm_source=google&utm_medium=pmax&utm_campaign=rt_shopping_na_nsp_na_PMAX-floor-care-d2c-na&utm_term=google&utm_content=OSB00033UZ-OSE00044L4&gad_source=1&gad_campaignid=23204271727&gbraid=0AAAAADL_Di29SHNd1UlcM4woSk95z2o7O&gclid=CjwKCAjwhe3OBhABEiwA6392zGnNEmuhMYc1Jaq46Qo4d1Cizlql9IwtRwoUvcMZaon9OoGmd1U86hoCx1EQAvD_BwE" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Konkret</a>
+                        <button onclick="zarezerwuj('prezent6', 'Odkurzacz')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+<!-- 
+                <div id="prezent7" class="gift-circle shadow-xl bg-white">
+                    <img src="serwer.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Serwer na dane</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent7', 'Serwer na dane')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <div id="prezent8" class="gift-circle shadow-xl bg-white">
+                    <img src="wakeup.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Wake up light<br><span class="text-xs normal-case">(np. Philips)</span></span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent8', 'Wake up light')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <!-- <div id="prezent9" class="gift-circle shadow-xl bg-white">
+                    <img src="nemesis.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Gra: Nemesis</span>
+                        <a href="https://aleplanszowki.pl/kooperacyjne/5032-nemesis-edycja-polska-5902650613485.html" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent9', 'Gra: Nemesis')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent10" class="gift-circle shadow-xl bg-white">
+                    <img src="nemesis-dodatek.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Nemesis:<br>Pokłosie</span>
+                        <a href="https://www.smyk.com/p/rebel-nemesis-poklosie-gra-strategiczna-i7741011?utm_source=google&utm_medium=cpc&utm_campaign=%5BPMAX%5D%20-%20C1%3AZabawki%20i%20gry%7CC2%3AGry%20-%20100-200z%C5%82&gad_source=1&gad_campaignid=19752119486&gclid=Cj0KCQjwqPLOBhCiARIsAKRMPZqEiJstt13PZdUWs7mgxrnx3QRCSdQUB6iTAwE36tRRcsfPcQRO3w4aAl6cEALw_wcB" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent10', 'Nemesis: Pokłosie')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent11" class="gift-circle shadow-xl bg-white">
+                    <img src="airfryer.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Air Fryer</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent11', 'Air Fryer')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+<!-- 
+                <div id="prezent12" class="gift-circle shadow-xl bg-white">
+                    <img src="ikea.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Bon do IKEA</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent12', 'Bon do IKEA')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent13" class="gift-circle shadow-xl bg-white">
+                    <img src="reczniki.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Ręczniki bambusowe</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent13', 'Ręczniki bambusowe')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent14" class="gift-circle shadow-xl bg-white">
+                    <img src="filtr.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Filtr grawitacyjny do wody</span>
+                        <a href="https://www.ceneo.pl/35035434;pla#tab=click" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent14', 'Filtr grawitacyjny do wody')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <div id="prezent15" class="gift-circle shadow-xl bg-white">
+                    <img src="drukarka.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Drukarka</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent15', 'Drukarka')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <!-- <div id="prezent16" class="gift-circle shadow-xl bg-white">
+                    <img src="overlock.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Overlock do szycia</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent16', 'Overlock do szycia')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent17" class="gift-circle shadow-xl bg-white">
+                    <img src="krzeslo.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Krzesło siodłowe</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent17', 'Krzesło siodłowe')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+
+                <div id="prezent19" class="gift-circle shadow-xl bg-white">
+                    <img src="wes-kinga.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Badania genetyczne<br>WES Kinga</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent19', 'WES Kinga')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <div id="prezent20" class="gift-circle shadow-xl bg-white">
+                    <img src="wes-krzysiu.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Badania genetyczne<br>WES Krzysiu</span>
+                        <!-- <span class="text-yellow-300 font-bold text-sm my-1">(Priorytet)</span> -->
+                        <a href="https://google.com" target="_blank" class="text-xs underline mb-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent20', 'WES Krzysiu')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <!-- <div id="prezent21" class="gift-circle shadow-xl bg-white">
+                    <img src="mlynki.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Młynki do soli i pieprzu</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent21', 'Młynki')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent22" class="gift-circle shadow-xl bg-white">
+                    <img src="empik.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Karta do Empiku</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent22', 'Karta do Empiku')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <div id="prezent23" class="gift-circle shadow-xl bg-white">
+                    <img src="rossmann.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Karta do Rossmanna</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent23', 'Karta do Rossmanna')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <div id="prezent24" class="gift-circle shadow-xl bg-white">
+                    <img src="pojemniki.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Szklane pojemniki na jedzenie</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent24', 'Szklane pojemniki')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <div id="prezent25" class="gift-circle shadow-xl bg-white">
+                    <img src="sztucce.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-lg uppercase tracking-wider">Komplet sztućców na 12 osób</span>
+                        <a href="https://arotrade.erli.pl/produkt/komplet-sztuccow-walizka-zestaw-sztucce-stal-nierdzewna-72el-dla-12-osob,261126014?xid=K1sBXiz-dffIdZTbD7O9tJBA4fC4pFs8CDmjlf9IGJSyLQD4r7-FggrZLd3-k8avKBt2gtaFsZiYemGyTiwIXr4sGe03Jpn3gS-G8MJDGg9zqQ&xidv=3&utm_source=google&utm_medium=cpc&utm_campaign=22208114594&gclid=Cj0KCQjwqPLOBhCiARIsAKRMPZpLGfyLuEi8mvB6t9R52zAxMBYLgPWWghHTE7whNDwcsuYVXdcl4WYaAue1EALw_wcB&gad_source=1&gad_campaignid=22208114594&gclid=Cj0KCQjwqPLOBhCiARIsAKRMPZpLGfyLuEi8mvB6t9R52zAxMBYLgPWWghHTE7whNDwcsuYVXdcl4WYaAue1EALw_wcB" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent25', 'Sztućce')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <div id="prezent26" class="gift-circle shadow-xl bg-white">
+                    <img src="zelazko.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Żelazko</span>
+                        <a href="https://www.home-appliances.philips/pl/pl/p/GC215_20" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent26', 'Żelazko')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div>
+
+                <!-- <div id="prezent27" class="gift-circle shadow-xl bg-white">
+                    <img src="naskrzydlach.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Gra: Na skrzydłach</span>
+                        <a href="https://www.ceneo.pl/74938782?fto=590192504&se=bMSXrxoHeZjSDarLWI6d9Hfmh46Jrlju&gad_source=1&gad_campaignid=21635506739&gclid=Cj0KCQjwqPLOBhCiARIsAKRMPZrIY_2QSqd7I-YBYCxZLoHf6jYfRCtLV5-g1obF0TYEmEMMzQl4f2gaAubSEALw_wcB" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent27', 'Gra: Na skrzydłach')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                <!-- <div id="prezent28" class="gift-circle shadow-xl bg-white">
+                    <img src="router.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-purple-400/60 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <span class="font-bold text-xl uppercase tracking-wider">Router WiFi</span>
+                        <a href="https://google.com" target="_blank" class="text-xs underline my-3 hover:text-purple-300">Przykład</a>
+                        <button onclick="zarezerwuj('prezent28', 'Router WiFi')" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full font-bold transition">Rezerwuję</button>
+                    </div>
+                </div> -->
+
+                
+
             </div>
-        </div>
 
         <div id="rsvp" class="widok-sekcji hidden w-full bg-creamy py-24 px-6 min-h-screen">
             <div class="max-w-3xl mx-auto text-center">
@@ -233,7 +515,84 @@
         <p class="pretty-font text-xl italic mb-1">Kinga & Krzysztof 2026</p>
         <p>© 2026 | Z miłością</p>
     </footer>
+    <!-- <script src="https://gstatic.com"></script>
+    <script src="https://gstatic.com"></script> -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCN3V6rIbQaWo-OukxmCaBySHQdPLeMZlk",
+            authDomain: "wedding-992a4.firebaseapp.com",
+            databaseURL: "https://wedding-992a4-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "wedding-992a4",
+            storageBucket: "wedding-992a4.firebasestorage.app",
+            messagingSenderId: "564059754394",
+            appId: "1:564059754394:web:4e41ba42f0d368469ab423",
+            measurementId: "G-D335PTRYT0"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase(app);
+
+        console.log("Firebase połączony!");
+
+        // Funkcja rezerwacji przypisana do window
+        window.zarezerwuj = function(id, nazwa) {
+            console.log("Próba rezerwacji:", id);
+            if (confirm(`Zarezerwować: ${nazwa}?`)) {
+            set(ref(db, 'rezerwacje/' + id), {
+                status: "zajete",
+                nazwaPrezentu: nazwa,
+                data: new Date().toISOString()
+            }).then(() => {
+                alert("Zapisano w bazie!");
+            });
+            }
+        };
+        
+        // Słuchanie zmian - TO MUSI ZMIENIĆ KOLOR
+        const rezerwacjeRef = ref(db, 'rezerwacje');
+        onValue(rezerwacjeRef, (snapshot) => {
+            const dane = snapshot.val();
+            console.log("Dane z bazy:", dane); // Zobaczysz w konsoli co przychodzi
+            if (dane) {
+            Object.keys(dane).forEach(id => {
+                if (dane[id].status === "zajete") {
+                zablokujWizualnie(id);
+                }
+            });
+            }
+        });
+
+        function zablokujWizualnie(id) {
+            const kafelek = document.getElementById(id);
+            if (!kafelek) return;
+
+            console.log("Blokuję wizualnie:", id);
+
+            // Forsowne nadpisanie stylów (zadziała nawet jak CSS zawiedzie)
+            kafelek.style.setProperty('filter', 'grayscale(100%)', 'important');
+            kafelek.style.setProperty('opacity', '0.6', 'important');
+            
+            const btn = kafelek.querySelector('button');
+            if (btn) {
+            btn.innerText = "ZAREZERWOWANE";
+            btn.disabled = true;
+            btn.style.backgroundColor = "#6b7280"; // szary kolor (Tailwind gray-500)
+            btn.style.cursor = "not-allowed";
+            }
+        }
+    </script>
     <script>
         function pokazSekcje(idSekcji, kliknietyPrzycisk) {
             // 1. Ukrywamy wszystkie sekcje
